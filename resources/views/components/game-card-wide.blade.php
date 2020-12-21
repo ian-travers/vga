@@ -17,7 +17,7 @@
     <div class="ml-8">
         <a href="#" class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-4">Game Title as long as it could be</a>
         <div class="text-gray-400 mt-1">Platform list</div>
-        <p class="text-gray-400 mt-6">Game description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab aliquam blanditiis consequatur consequuntur debitis deleniti distinctio, excepturi explicabo maiores neque, optio porro praesentium quasi, quo quos sequi sint vel.</p>
+        <p class="text-gray-400 mt-6 hidden md:block">Game description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab aliquam blanditiis consequatur consequuntur debitis deleniti distinctio, excepturi explicabo maiores neque, optio porro praesentium quasi, quo quos sequi sint vel.</p>
     </div>
 </div>
 

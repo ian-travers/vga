@@ -1,14 +1,14 @@
 <header class="border-b border-gray-800">
-    <nav class="container mx-auto flex items-center justify-between px-4 py-6">
-        <div class="flex items-center ">
+    <nav class="container mx-auto flex flex-col lg:flex-row items-center justify-between px-4 py-6">
+        <div class="flex flex-col lg:flex-row items-center">
             <a href="/">Video Games</a>
-            <ul class="flex ml-16 space-x-8">
+            <ul class="flex ml-0 lg:ml-16 space-x-8 mt-4 lg:mt-0">
                 <li><a href="#" class="hover:text-gray-400">Games</a></li>
                 <li><a href="#" class="hover:text-gray-400">Reviews</a></li>
                 <li><a href="#" class="hover:text-gray-400">Coming Soon</a></li>
             </ul>
         </div>
-        <div class="flex items-center">
+        <div class="flex items-center mt-4 lg:mt-0">
             <div class="relative">
                 <input type="text" class="w-64 bg-gray-800 text-sm rounded-full focus:outline-none px-3 py-1 pl-8" placeholder="Search...">
                 <div class="absolute top-0 flex items-center h-full ml-2">
