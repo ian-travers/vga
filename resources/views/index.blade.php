@@ -21,8 +21,12 @@
                 </div>
             </div>
             <div class="most-anticipated w-1/4">
-                <h2 class="text-blue-500 uppercase tracking-wide font-bold"></h2>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi distinctio dolore et ipsam, labore modi nobis nostrum sed. Accusamus, ad aspernatur doloribus eligendi excepturi explicabo mollitia nam, nisi pariatur provident quas quo, similique.
+                <h2 class="text-blue-500 uppercase tracking-wide font-bold">Most Anticipated</h2>
+                <div class="space-y-8 mt-8">
+                    <x-game-card-small></x-game-card-small>
+                    <x-game-card-small></x-game-card-small>
+                    <x-game-card-small></x-game-card-small>
+                </div>
             </div>
         </div>
     </div>
