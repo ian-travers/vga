@@ -20,8 +20,15 @@
                     <x-game-card-wide></x-game-card-wide>
                 </div>
             </div>
-            <div class="most-anticipated w-1/4">
+            <div class="w-1/4">
                 <h2 class="text-blue-500 uppercase tracking-wide font-bold">Most Anticipated</h2>
+                <div class="space-y-8 mt-8">
+                    <x-game-card-small></x-game-card-small>
+                    <x-game-card-small></x-game-card-small>
+                    <x-game-card-small></x-game-card-small>
+                </div>
+
+                <h2 class="mt-12 text-blue-500 uppercase tracking-wide font-bold">Coming Soon</h2>
                 <div class="space-y-8 mt-8">
                     <x-game-card-small></x-game-card-small>
                     <x-game-card-small></x-game-card-small>

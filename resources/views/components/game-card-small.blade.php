@@ -1,7 +1,7 @@
 <div class="game flex">
     <a href="#">
         <img
-            class="hover:opacity-75 transition ease-in-out duration-300 w-32"
+            class="hover:opacity-75 transition ease-in-out duration-300 w-30"
             src="https://via.placeholder.com/100x150"
             alt="game cover"
         >
