@@ -13,8 +13,12 @@
 </head>
 <body class="bg-gray-900 text-white">
 <x-header></x-header>
-{{ $slot }}
 
+<main class="px-4 py-6">
+    {{ $slot }}
+</main>
+
+<x-footer></x-footer>
 <script src="{{ mix('js/app.js', 'build') }}"></script>
 </body>
 </html>
