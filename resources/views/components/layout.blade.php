@@ -11,8 +11,8 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css', 'build') }}">
 </head>
-<body class="antialiased">
-
+<body class="bg-gray-900 text-white">
+<x-header></x-header>
 {{ $slot }}
 
 <script src="{{ mix('js/app.js', 'build') }}"></script>
