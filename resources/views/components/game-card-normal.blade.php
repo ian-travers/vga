@@ -3,7 +3,7 @@
         <a href="#">
             <img
                 class="hover:opacity-75 transition ease-in-out duration-300"
-                src="https://via.placeholder.com/150"
+                src="https://via.placeholder.com/200x300"
                 alt="game cover"
             >
         </a>
