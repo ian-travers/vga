@@ -1,14 +1,15 @@
 <x-layout>
     <div class="container mx-auto px-4">
         <h2 class="text-blue-500 uppercase tracking-wide font-bold">Popular Games</h2>
-        <div class="popular-games grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6 text-sm gap-12 border-b border-gray-800 pb-12">
-            <x-game-card-normal></x-game-card-normal>
-            <x-game-card-normal></x-game-card-normal>
-            <x-game-card-normal></x-game-card-normal>
-            <x-game-card-normal></x-game-card-normal>
-            <x-game-card-normal></x-game-card-normal>
-            <x-game-card-normal></x-game-card-normal>
-            <x-game-card-normal></x-game-card-normal>
+        <div
+            class="popular-games grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6 text-sm gap-12 border-b border-gray-800 pb-12">
+            @foreach($popularGames as $game)
+                <x-game-card-normal
+                    name="{{ $game['name'] }}"
+                    cover="{{ $game['cover']['url'] }}"
+                    platforms="{!! json_encode($game['platforms']) !!}"
+                ></x-game-card-normal>
+            @endforeach
         </div> <!-- end popular games -->
 
         <div class="flex flex-col lg:flex-row my-6">
