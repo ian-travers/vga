@@ -1,11 +1,11 @@
 <x-layout>
     <div class="container mx-auto px-4">
-        <div class="game-details border-b border-gray-800 pb-8 flex">
+        <div class="game-details border-b border-gray-800 pb-8 flex flex-col md:flex-row">
             <div class="flex-none">
                 <img src="https://via.placeholder.com/300x450" alt="cover">
             </div>
-            <div class="ml-12 mr-64">
-                <h2 class="font-semibold text-4xl">Game Title Goes Here</h2>
+            <div class="md:ml-4 lg:ml-12 lg:mr-64">
+                <h2 class="font-semibold text-4xl leading-tight mt-1">Game Title Goes Here</h2>
                 <div class="text-gray-400">
                     <span>Adventure, RPG</span>
                     &middot;
@@ -14,20 +14,22 @@
                     <span>Playstation 4</span>
                 </div>
 
-                <div class="flex flex-wrap items-center mt-8">
-                    <div class="flex items-center">
-                        <div class="w-16 h-16 bg-gray-800 rounded-full">
-                            <div class="font-semibold text-xs flex justify-center items-center h-full">90%</div>
+                <div class="flex flex-col md:flex-row items-center mt-4 md:mt-8">
+                    <div class="flex">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-gray-800 rounded-full">
+                                <div class="font-semibold text-xs flex justify-center items-center h-full">90%</div>
+                            </div>
+                            <div class="ml-4 text-xs">Member<br>Score</div>
                         </div>
-                        <div class="ml-4 text-xs">Member<br>Score</div>
-                    </div>
-                    <div class="flex items-center ml-12">
-                        <div class="w-16 h-16 bg-gray-800 rounded-full">
-                            <div class="font-semibold text-xs flex justify-center items-center h-full">87%</div>
+                        <div class="flex items-center ml-12">
+                            <div class="w-16 h-16 bg-gray-800 rounded-full">
+                                <div class="font-semibold text-xs flex justify-center items-center h-full">87%</div>
+                            </div>
+                            <div class="ml-4 text-xs">Critic<br>Score</div>
                         </div>
-                        <div class="ml-4 text-xs">Critic<br>Score</div>
                     </div>
-                    <div class="flex items-center space-x-4 ml-12">
+                    <div class="flex items-center space-x-4 md:ml-4 lg:ml-12 mt-4 lg:mt-0">
                         <div class="w-8 h-8 bg-gray-800 flex items-center justify-center rounded-full">
                             <a href="#">
                                 <svg class="w-5 h-5">
@@ -63,7 +65,7 @@
 
         <div class="images-container border-b border-gray-800 pb-12 mt-8">
             <h2 class="text-blue-500 uppercase tracking-wide font-bold">Images</h2>
-            <div class="grid grid-cols-3 gap-12 mt-6">
+            <div class="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-6">
                 <x-screenshot></x-screenshot>
                 <x-screenshot></x-screenshot>
                 <x-screenshot></x-screenshot>
@@ -72,7 +74,7 @@
 
         <div class="similar-games-container mt-8">
             <h2 class="text-blue-500 uppercase tracking-wide font-bold">Similar Games</h2>
-            <div class="grid grid-cols-6 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6 gap-12">
                 <x-game-card-normal></x-game-card-normal>
                 <x-game-card-normal></x-game-card-normal>
                 <x-game-card-normal></x-game-card-normal>
