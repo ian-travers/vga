@@ -22,4 +22,3 @@
 <script src="{{ mix('js/app.js', 'build') }}"></script>
 </body>
 </html>
-

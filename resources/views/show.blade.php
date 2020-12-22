@@ -85,4 +85,3 @@
         </div><!-- end similar-games-container -->
     </div>
 </x-layout>
-

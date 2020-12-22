@@ -17,4 +17,3 @@
     <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">Game Title as long as it could be</a>
     <div class="text-gray-400 mt-1">Platform list</div>
 </div>
-
