@@ -1,11 +1,11 @@
 <x-layout>
     <div class="container mx-auto px-4">
         <div class="game-details border-b border-gray-800 pb-8 flex flex-col md:flex-row">
-            <div class="flex-none">
+            <div class="flex-none self-center">
                 <img src="https://via.placeholder.com/300x450" alt="cover">
             </div>
-            <div class="md:ml-4 lg:ml-12 lg:mr-64">
-                <h2 class="font-semibold text-4xl leading-tight mt-1">Game Title Goes Here</h2>
+            <div class="md:ml-4 lg:ml-12 lg:mr-64 text-center md:text-left">
+                <h2 class="font-semibold text-4xl leading-tight mt-2 md:mt-0">Game Title Goes Here</h2>
                 <div class="text-gray-400">
                     <span>Adventure, RPG</span>
                     &middot;
@@ -43,10 +43,10 @@
                         </div>
                     </div>
                 </div>
-                <p class="mt-12">
+                <p class="mt-4 md:mt-12">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam aliquid architecto at beatae dolor, dolore dolores facere ipsum libero mollitia nobis numquam quaerat quo quod suscipit tempora voluptate voluptatibus!
                 </p>
-                <div class="mt-12">
+                <div class="mt-4 md:mt-12 flex justify-center md:justify-start">
                     <button
                         class="flex bg-blue-500 text-white font-semibold px-4 py-4 rounded hover:bg-blue-600 transition ease-in-out duration-300"
                     >
