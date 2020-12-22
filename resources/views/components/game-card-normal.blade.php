@@ -1,4 +1,4 @@
-<div class="game mt-6">
+<div class="game mt-6 text-center md:text-left">
     <div class="relative inline-block">
         <a href="#">
             <img

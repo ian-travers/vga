@@ -1,4 +1,4 @@
-<div class="game flex">
+<div class="game flex justify-center md:justify-start">
     <a href="#">
         <img
             class="hover:opacity-75 transition ease-in-out duration-300 w-30"
