@@ -1,4 +1,4 @@
-@props(['name', 'cover', 'platforms'])
+@props(['name', 'cover', 'rating', 'platforms'])
 
 <div class="game mt-6 text-center md:text-left">
     <div class="relative inline-block">
@@ -9,17 +9,21 @@
                 alt="game cover"
             >
         </a>
-        <div
-            class="absolute w-16 h-16 bg-gray-800 rounded-full"
-            style="right: -20px; bottom: -20px;"
-        >
-            <div class="flex items-center justify-center font-semibold text-xs  h-full">15%</div>
-        </div>
+        @if($rating)
+            <div
+                class="absolute w-16 h-16 bg-gray-800 rounded-full"
+                style="right: -20px; bottom: -20px;"
+            >
+                <div class="flex items-center justify-center font-semibold text-xs  h-full">
+                    {{ $rating }}
+                </div>
+            </div>
+        @endif
     </div>
     <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">{!! $name !!}</a>
     <div class="text-gray-400 mt-1">
         @foreach(json_decode($platforms) as $platform)
-            {{ $platform->abbreviation ?? '' }} &middot;
+        {{ $platform->abbreviation ?? '' }} &middot;
         @endforeach
     </div>
 </div>

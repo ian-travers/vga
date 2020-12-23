@@ -7,6 +7,7 @@
                 <x-game-card-normal
                     name="{{ $game['name'] }}"
                     cover="{{ $game['cover']['url'] }}"
+                    rating="{{ isset($game['rating']) ? round($game['rating']) . '%' : '' }}"
                     platforms="{!! json_encode($game['platforms']) !!}"
                 ></x-game-card-normal>
             @endforeach
@@ -20,6 +21,7 @@
                         <x-game-card-wide
                             name="{{ $game['name'] }}"
                             cover="{{ $game['cover']['url'] }}"
+                            rating="{{ isset($game['rating']) ? round($game['rating']) . '%' : '' }}"
                             platforms="{!! json_encode($game['platforms']) !!}"
                             summary="{{ $game['summary'] }}"
                         ></x-game-card-wide>
