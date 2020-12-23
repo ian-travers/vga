@@ -55,8 +55,6 @@ fields name, cover.url, first_release_date, total_rating_count, rating, rating_c
             ->post(config('services.igdb.endpoint'))
             ->json();
 
-        dump($mostAnticipated);
-
         $comingSoon = Http::withHeaders([
             'Client-ID' => config('services.igdb.client_id'),
             'Authorization' => config('services.igdb.authorization')
@@ -69,8 +67,6 @@ fields name, cover.url, first_release_date, total_rating_count, rating, rating_c
             ", 'text/plain')
             ->post(config('services.igdb.endpoint'))
             ->json();
-
-        dump($comingSoon);
 
         return view('index', compact('popularGames', 'recentlyReviewed', 'mostAnticipated', 'comingSoon'));
     }
