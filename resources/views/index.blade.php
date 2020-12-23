@@ -16,9 +16,14 @@
             <div class="recently-reviewed w-full lg:w-3/4 mr-0 lg:mr-32">
                 <h2 class="text-blue-500 uppercase tracking-wide font-bold">Recently Reviewed</h2>
                 <div class="space-y-12 mt-8">
-                    <x-game-card-wide></x-game-card-wide>
-                    <x-game-card-wide></x-game-card-wide>
-                    <x-game-card-wide></x-game-card-wide>
+                    @foreach($recentlyReviewed as $game)
+                        <x-game-card-wide
+                            name="{{ $game['name'] }}"
+                            cover="{{ $game['cover']['url'] }}"
+                            platforms="{!! json_encode($game['platforms']) !!}"
+                            summary="{{ $game['summary'] }}"
+                        ></x-game-card-wide>
+                    @endforeach
                 </div>
             </div>
             <div class="w-full lg:w-1/4 mt-12 lg:mt-0">
