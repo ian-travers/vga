@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css', 'build') }}">
+    @livewireStyles
 </head>
 <body class="bg-gray-900 text-white">
 <x-header></x-header>
@@ -20,5 +21,6 @@
 
 <x-footer></x-footer>
 <script src="{{ mix('js/app.js', 'build') }}"></script>
+@livewireScripts
 </body>
 </html>
