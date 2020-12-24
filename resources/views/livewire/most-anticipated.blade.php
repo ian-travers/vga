@@ -9,6 +9,6 @@
             releaseDate="{{ \Carbon\Carbon::parse($game['first_release_date'])->format('M d, Y') }}"
         ></x-game-card-small>
     @empty
-        Loading...
+        <x-spinner></x-spinner>
     @endforelse
 </div>

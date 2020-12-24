@@ -13,7 +13,7 @@
                 summary="{{ $game['summary'] }}"
             ></x-game-card-wide>
         @empty
-            Loading...
+            <x-spinner></x-spinner>
         @endforelse
     </div>
 </div>

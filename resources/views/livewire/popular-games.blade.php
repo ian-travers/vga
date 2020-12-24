@@ -10,6 +10,6 @@
             platforms="{!! json_encode($game['platforms']) !!}"
         ></x-game-card-normal>
     @empty
-        Loading...
+        <x-spinner></x-spinner>
     @endforelse
 </div>
