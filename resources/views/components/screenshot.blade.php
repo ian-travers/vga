@@ -1,7 +1,9 @@
+@props(['url'])
+
 <div>
-    <a href="#">
+    <a href="{{ Str::replaceFirst('_big', '_huge', $url) }}">
         <img
-            src="https://via.placeholder.com/600x400"
+            src="{{ $url }}"
             class="hover:opacity-75 transition ease-in-out duration-300"
             alt="screenshot"
         >

@@ -5,7 +5,10 @@
         <a href="{{ route('games.show', $slug) }}">
             <img
                 class="hover:opacity-75 transition ease-in-out duration-300"
-                src="{{ Str::replaceFirst('thumb', 'cover_big', $cover) }}"
+                src="{{ $cover
+                    ? Str::replaceFirst('thumb', 'cover_big', $cover)
+                    : 'https://via.placeholder.com/200x300?text=No+Cover'
+                }}"
                 alt="game cover"
             >
         </a>
