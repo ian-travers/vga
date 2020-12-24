@@ -5,6 +5,7 @@
     @forelse($popularGames as $game)
         <x-game-card-normal
             name="{{ $game['name'] }}"
+            slug="{{ $game['slug'] }}"
             cover="{{ $game['cover']['url'] }}"
             rating="{{ isset($game['rating']) ? round($game['rating']) . '%' : '' }}"
             platforms="{!! json_encode($game['platforms']) !!}"

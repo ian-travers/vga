@@ -7,6 +7,7 @@
         @forelse($recentlyReviewed as $game)
             <x-game-card-wide
                 name="{{ $game['name'] }}"
+                slug="{{ $game['slug'] }}"
                 cover="{{ $game['cover']['url'] }}"
                 rating="{{ isset($game['rating']) ? round($game['rating']) . '%' : '' }}"
                 platforms="{!! json_encode($game['platforms']) !!}"

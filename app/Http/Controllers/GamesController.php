@@ -9,8 +9,8 @@ class GamesController extends Controller
         return view('index');
     }
 
-    public function show($id)
+    public function show(string $slug)
     {
-        //
+        return view('show');
     }
 }

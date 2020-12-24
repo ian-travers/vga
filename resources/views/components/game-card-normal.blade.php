@@ -1,8 +1,8 @@
-@props(['name', 'cover', 'rating', 'platforms'])
+@props(['name', 'slug', 'cover', 'rating', 'platforms'])
 
 <div class="game mt-6 text-center md:text-left">
     <div class="relative inline-block">
-        <a href="#">
+        <a href="{{ route('games.show', $slug) }}">
             <img
                 class="hover:opacity-75 transition ease-in-out duration-300"
                 src="{{ Str::replaceFirst('thumb', 'cover_big', $cover) }}"
@@ -20,7 +20,7 @@
             </div>
         @endif
     </div>
-    <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">{!! $name !!}</a>
+    <a href="{{ route('games.show', $slug) }}" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">{!! $name !!}</a>
     <div class="text-gray-400 mt-1">
         @foreach(json_decode($platforms) as $platform)
         {{ $platform->abbreviation ?? '' }} &middot;

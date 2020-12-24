@@ -5,6 +5,7 @@
     @forelse($mostAnticipated as $game)
         <x-game-card-small
             name="{{ $game['name'] }}"
+            slug="{{ $game['slug'] }}"
             cover="{{ $game['cover']['url'] }}"
             releaseDate="{{ \Carbon\Carbon::parse($game['first_release_date'])->format('M d, Y') }}"
         ></x-game-card-small>
