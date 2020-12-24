@@ -4,7 +4,7 @@
     <div class="flex-none">
         <a href="#">
             <img
-                class="hover:opacity-75 transition ease-in-out duration-300 w-30"
+                class="hover:opacity-75 transition ease-in-out duration-300 w-24"
                 src="{{ Str::replaceFirst('thumb', 'cover_small', $cover) }}"
                 alt="game cover"
             >

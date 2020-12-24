@@ -13,7 +13,9 @@
                 summary="{{ $game['summary'] }}"
             ></x-game-card-wide>
         @empty
-            <x-spinner></x-spinner>
+            @foreach(range(1, 3,) as $i)
+                <x-game-card-wide-placeholder></x-game-card-wide-placeholder>
+            @endforeach
         @endforelse
     </div>
 </div>

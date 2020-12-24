@@ -10,6 +10,8 @@
             platforms="{!! json_encode($game['platforms']) !!}"
         ></x-game-card-normal>
     @empty
-        <x-spinner></x-spinner>
+        @foreach(range(1, 12) as $i)
+            <x-game-card-normal-placeholder></x-game-card-normal-placeholder>
+        @endforeach
     @endforelse
 </div>
