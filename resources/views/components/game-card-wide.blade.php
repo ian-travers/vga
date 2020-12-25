@@ -5,7 +5,7 @@
         <a href="{{ route('games.show', $slug) }}">
             <img
                 class="hover:opacity-75 transition ease-in-out duration-300 w-48"
-                src="{{ Str::replaceFirst('thumb', 'cover_big', $cover) }}"
+                src="{{ $cover }}"
                 alt="game cover"
             >
         </a>
@@ -23,9 +23,7 @@
     <div class="ml-8">
         <a href="{{ route('games.show', $slug) }}" class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-4">{!! $name !!}</a>
         <div class="text-gray-400 mt-1">
-            @foreach(json_decode($platforms) as $platform)
-            {{ $platform->abbreviation ?? '' }} &middot;
-            @endforeach
+            {{ $platforms }}
         </div>
         <p class="text-gray-400 mt-6 hidden md:block">{!! $summary !!}</p>
     </div>
