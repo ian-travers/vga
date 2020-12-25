@@ -38,7 +38,7 @@ fields name, cover.url, first_release_date, total_rating_count, platforms.abbrev
 
     private function formatGameForView(array $game)
     {
-        $t =  collect($game)->merge([
+        return collect($game)->merge([
             'cover' => key_exists('cover', $game)
                 ? Str::replaceFirst('thumb', 'cover_big', $game['cover']['url'])
                 : 'https://via.placeholder.com/200x300?text=No+Cover',
@@ -61,7 +61,7 @@ fields name, cover.url, first_release_date, total_rating_count, platforms.abbrev
                     return [
                         'url' => Str::replaceFirst('thumb', 'screenshot_big', $screenshot['url'])
                     ];
-                })
+                })->take(9)
                 : [],
             'similar_games' => collect($game['similar_games'])->map(function ($game) {
                 return [
@@ -77,11 +77,7 @@ fields name, cover.url, first_release_date, total_rating_count, platforms.abbrev
                         ? collect($game['platforms'])->pluck('abbreviation')->implode(', ')
                         : null,
                 ];
-            }),
+            })->take(6),
         ]);
-
-        dump($t);
-
-        return $t;
     }
 }
