@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class GamesController extends Controller
 {
@@ -31,7 +32,52 @@ fields name, cover.url, first_release_date, total_rating_count, platforms.abbrev
         abort_if(!$game, 404);
 
         return view('show', [
-            'game' => $game[0]
+            'game' => $this->formatGameForView($game[0]),
         ]);
+    }
+
+    private function formatGameForView(array $game)
+    {
+        $t =  collect($game)->merge([
+            'cover' => Str::replaceFirst('thumb', 'cover_big', $game['cover']['url']),
+            'genres' => collect($game['genres'])->pluck('name')->implode(', '),
+            'company' => $game['involved_companies'][0]['company']['name'],
+            'platforms' => key_exists('platforms', $game)
+                ? collect($game['platforms'])->pluck('abbreviation')->implode(', ')
+                : null,
+            'rating' => key_exists('rating', $game)
+                ? round($game['rating']) . '%'
+                : '0%',
+            'aggregated_rating' => key_exists('aggregated_rating', $game)
+                ? round($game['aggregated_rating']) . '%'
+                : '0%',
+            'videos' => key_exists('videos', $game)
+                ? 'https://youtube.com/watch/' . $game['videos'][0]['video_id']
+                : null,
+            'screenshots' => collect($game['screenshots'])->map(function ($screenshot) {
+                return [
+                    'url' => Str::replaceFirst('thumb', 'screenshot_big', $screenshot['url'])
+                ];
+            }),
+            'similar_games' => collect($game['similar_games'])->map(function ($game) {
+                return [
+                    'name' => $game['name'],
+                    'slug' => $game['slug'],
+                    'cover' => key_exists('cover', $game)
+                        ? Str::replaceFirst('thumb', 'cover_big', $game['cover']['url'])
+                        : null,
+                    'rating' => key_exists('rating', $game)
+                        ? round($game['rating']) . '%'
+                        : null,
+                    'platforms' => key_exists('platforms', $game)
+                        ? collect($game['platforms'])->pluck('abbreviation')->implode(', ')
+                        : null,
+                ];
+            }),
+        ]);
+
+        dump($t);
+
+        return $t;
     }
 }

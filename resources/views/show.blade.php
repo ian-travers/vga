@@ -2,25 +2,21 @@
     <div class="container mx-auto px-4">
         <div class="game-details border-b border-gray-800 pb-8 flex flex-col md:flex-row">
             <div class="flex-none self-center">
-                <img src="{{ Str::replaceFirst('thumb', 'cover_big', $game['cover']['url']) }}" alt="cover">
+                <img src="{{ $game['cover'] }}" alt="cover">
             </div>
             <div class="md:ml-4 lg:ml-12 lg:mr-64 text-center md:text-left">
                 <h2 class="font-semibold text-4xl leading-tight mt-2 md:mt-0">{{ $game['name'] }}</h2>
                 <div class="text-gray-400">
                     <span>
-                        @foreach($game['genres'] as $genre)
-                            {{ $genre['name'] }},
-                        @endforeach
+                        {{ $game['genres'] }}
                     </span>
-                    &middot;
+                    &nbsp;&middot;&nbsp;
                     <span>
-                        {{ $game['involved_companies'][0]['company']['name'] }}
+                        {{ $game['company'] }}
                     </span>
-                    &middot;
+                    &nbsp;&middot;&nbsp;
                     <span>
-                        @foreach($game['platforms'] as $platform)
-                            {{ key_exists('abbreviation', $platform) ? $platform['abbreviation']: '' }},
-                        @endforeach
+                        {{ $game['platforms'] }}
                     </span>
                 </div>
 
@@ -29,11 +25,7 @@
                         <div class="flex items-center">
                             <div class="w-16 h-16 bg-gray-800 rounded-full">
                                 <div class="font-semibold text-xs flex justify-center items-center h-full">
-                                    @if(key_exists('rating', $game))
-                                        {{ round($game['rating']) . '%' }}
-                                    @else
-                                        0%
-                                    @endif
+                                    {{ $game['rating'] }}
                                 </div>
                             </div>
                             <div class="ml-4 text-xs">Member<br>Score</div>
@@ -41,11 +33,7 @@
                         <div class="flex items-center ml-12">
                             <div class="w-16 h-16 bg-gray-800 rounded-full">
                                 <div class="font-semibold text-xs flex justify-center items-center h-full">
-                                    @if(key_exists('aggregated_rating', $game))
-                                        {{ round($game['aggregated_rating']) . '%' }}
-                                    @else
-                                        0%
-                                    @endif
+                                    {{ $game['aggregated_rating'] }}
                                 </div>
                             </div>
                             <div class="ml-4 text-xs">Critic<br>Score</div>
@@ -71,9 +59,9 @@
                     {{ $game['summary'] }}
                 </p>
                 <div class="mt-4 md:mt-12 flex justify-center md:justify-start">
-                    @if(key_exists('videos', $game))
+                    @if($game['videos'])
                         <a
-                            href="https://youtube.com/watch/{{ $game['videos'][0]['video_id'] }}"
+                            href="{{ $game['videos'] }}"
                             class="flex bg-blue-500 text-white font-semibold px-4 py-4 rounded hover:bg-blue-600 transition ease-in-out duration-300"
                         >
                             <svg class="w-6 h-6">
@@ -89,19 +77,19 @@
                         </a>
                     @else
                         <button
-                        class="flex bg-blue-500 text-white font-semibold px-4 py-4 rounded hover:bg-blue-600 transition ease-in-out duration-300"
-                    >
-                        <svg class="w-6 h-6">
-                            <g fill-rule="evenodd">
-                                <g fill="white">
-                                    <path
-                                        d="M2.92893219,17.0710678 C6.83417511,20.9763107 13.1658249,20.9763107 17.0710678,17.0710678 C20.9763107,13.1658249 20.9763107,6.83417511 17.0710678,2.92893219 C13.1658249,-0.976310729 6.83417511,-0.976310729 2.92893219,2.92893219 C-0.976310729,6.83417511 -0.976310729,13.1658249 2.92893219,17.0710678 L2.92893219,17.0710678 Z M15.6568542,15.6568542 C18.7810486,12.5326599 18.7810486,7.46734008 15.6568542,4.34314575 C12.5326599,1.21895142 7.46734008,1.21895142 4.34314575,4.34314575 C1.21895142,7.46734008 1.21895142,12.5326599 4.34314575,15.6568542 C7.46734008,18.7810486 12.5326599,18.7810486 15.6568542,15.6568542 Z M7,6 L15,10 L7,14 L7,6 Z"
-                                        id="Combined-Shape"></path>
+                            class="flex bg-blue-500 text-white font-semibold px-4 py-4 rounded hover:bg-blue-600 transition ease-in-out duration-300"
+                        >
+                            <svg class="w-6 h-6">
+                                <g fill-rule="evenodd">
+                                    <g fill="white">
+                                        <path
+                                            d="M2.92893219,17.0710678 C6.83417511,20.9763107 13.1658249,20.9763107 17.0710678,17.0710678 C20.9763107,13.1658249 20.9763107,6.83417511 17.0710678,2.92893219 C13.1658249,-0.976310729 6.83417511,-0.976310729 2.92893219,2.92893219 C-0.976310729,6.83417511 -0.976310729,13.1658249 2.92893219,17.0710678 L2.92893219,17.0710678 Z M15.6568542,15.6568542 C18.7810486,12.5326599 18.7810486,7.46734008 15.6568542,4.34314575 C12.5326599,1.21895142 7.46734008,1.21895142 4.34314575,4.34314575 C1.21895142,7.46734008 1.21895142,12.5326599 4.34314575,15.6568542 C7.46734008,18.7810486 12.5326599,18.7810486 15.6568542,15.6568542 Z M7,6 L15,10 L7,14 L7,6 Z"
+                                            id="Combined-Shape"></path>
+                                    </g>
                                 </g>
-                            </g>
-                        </svg>
-                        <span class="ml-2">Play Trailer</span>
-                    </button>
+                            </svg>
+                            <span class="ml-2">Play Trailer</span>
+                        </button>
                     @endif
                 </div>
             </div>
@@ -111,7 +99,8 @@
             <h2 class="text-blue-500 uppercase tracking-wide font-bold">Images</h2>
             <div class="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-6">
                 @foreach($game['screenshots'] as $screenshot)
-                    <x-screenshot url="{{ Str::replaceFirst('thumb', 'screenshot_big', $screenshot['url']) }}"></x-screenshot>
+                    <x-screenshot
+                        url="{{ $screenshot['url'] }}"></x-screenshot>
                 @endforeach
             </div>
         </div><!-- end images-container -->
@@ -123,9 +112,9 @@
                     <x-game-card-normal
                         name="{{ $game['name'] }}"
                         slug="{{ $game['slug'] }}"
-                        cover="{{ key_exists('cover', $game) ? $game['cover']['url'] : null }}"
-                        rating="{{ isset($game['rating']) ? round($game['rating']) . '%' : '' }}"
-                        platforms="{!! json_encode($game['platforms']) !!}"
+                        cover="{{ $game['cover'] }}"
+                        rating="{{ $game['rating'] }}"
+                        platforms="{{ $game['platforms'] }}"
                     ></x-game-card-normal>
                 @empty
                     Not found.
