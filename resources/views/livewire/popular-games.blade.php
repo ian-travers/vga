@@ -6,9 +6,9 @@
         <x-game-card-normal
             name="{{ $game['name'] }}"
             slug="{{ $game['slug'] }}"
-            cover="{{ $game['cover']['url'] }}"
-            rating="{{ isset($game['rating']) ? round($game['rating']) . '%' : '' }}"
-            platforms="{!! json_encode($game['platforms']) !!}"
+            cover="{{ $game['coverUrl'] }}"
+            rating="{{ $game['rating'] }}"
+            platforms="{{ $game['platforms'] }}"
         ></x-game-card-normal>
     @empty
         @foreach(range(1, 12) as $i)

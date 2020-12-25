@@ -5,10 +5,7 @@
         <a href="{{ route('games.show', $slug) }}">
             <img
                 class="hover:opacity-75 transition ease-in-out duration-300"
-                src="{{ $cover
-                    ? Str::replaceFirst('thumb', 'cover_big', $cover)
-                    : 'https://via.placeholder.com/200x300?text=No+Cover'
-                }}"
+                src="{{ $cover }}"
                 alt="game cover"
             >
         </a>
@@ -25,8 +22,6 @@
     </div>
     <a href="{{ route('games.show', $slug) }}" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">{!! $name !!}</a>
     <div class="text-gray-400 mt-1">
-        @foreach(json_decode($platforms) as $platform)
-        {{ $platform->abbreviation ?? '' }} &middot;
-        @endforeach
+        {{ $platforms }}
     </div>
 </div>
