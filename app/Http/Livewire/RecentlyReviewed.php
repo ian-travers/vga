@@ -10,6 +10,8 @@ use Livewire\Component;
 
 class RecentlyReviewed extends Component
 {
+    use PrepareForNormalView;
+
     public $recentlyReviewed = [];
 
     public function loadRecentlyReviewed()
@@ -34,21 +36,6 @@ fields name, cover.url, first_release_date, total_rating_count, platforms.abbrev
         });
 
         $this->recentlyReviewed = $this->formatForView($recentlyReviewedUnformatted);
-    }
-
-    protected function formatForView(array $games)
-    {
-        return collect($games)->map(function ($game) {
-            return collect($game)->merge([
-                'coverUrl' => key_exists('cover', $game)
-                    ? Str::replaceFirst('thumb', 'cover_big', $game['cover']['url'])
-                    : 'https://via.placeholder.com/200x300?text=No+Cover',
-                'rating' => isset($game['rating']) ? round($game['rating']) . '%' : null,
-                'platforms' => key_exists('platforms', $game)
-                    ? collect($game['platforms'])->pluck('abbreviation')->implode(', ')
-                    : null,
-            ]);
-        })->toArray();
     }
 
     public function render()

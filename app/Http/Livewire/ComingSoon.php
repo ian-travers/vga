@@ -10,6 +10,8 @@ use Livewire\Component;
 
 class ComingSoon extends Component
 {
+    use PrepareForShortView;
+
     public $comingSoon = [];
 
     public function loadComingSoon()
@@ -32,18 +34,6 @@ fields name, cover.url, first_release_date, total_rating_count, rating, rating_c
         });
 
         $this->comingSoon = $this->formatForView($comingSoonUnformatted);
-    }
-
-    protected function formatForView(array $games)
-    {
-        return collect($games)->map(function ($game) {
-            return collect($game)->merge([
-                'coverUrl' => key_exists('cover', $game)
-                    ? Str::replaceFirst('thumb', 'cover_small', $game['cover']['url'])
-                    : 'https://via.placeholder.com/100x130?text=No+Cover',
-                'releaseDate' => Carbon::parse($game['first_release_date'])->format('M d, Y')
-            ]);
-        })->toArray();
     }
 
     public function render()
