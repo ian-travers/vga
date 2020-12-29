@@ -48,11 +48,11 @@ fields name, cover.url, first_release_date, total_rating_count, platforms.abbrev
                 ? collect($game['platforms'])->pluck('abbreviation')->implode(', ')
                 : null,
             'rating' => key_exists('rating', $game)
-                ? round($game['rating']) . '%'
-                : '0%',
+                ? round($game['rating'])
+                : '0',
             'aggregated_rating' => key_exists('aggregated_rating', $game)
-                ? round($game['aggregated_rating']) . '%'
-                : '0%',
+                ? round($game['aggregated_rating'])
+                : '0',
             'videos' => key_exists('videos', $game)
                 ? 'https://youtube.com/watch/' . $game['videos'][0]['video_id']
                 : null,
