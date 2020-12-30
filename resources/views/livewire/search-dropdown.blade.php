@@ -17,6 +17,11 @@
         </svg>
     </div>
 
+    <div wire:loading class="absolute top-0 right-0 mt-1">
+        <x-spinner></x-spinner>
+    </div>
+
+
     @if(strlen($search) > 2)
         <div class="absolute z-50 bg-gray-800 text-sm w-64 mt-2 rounded-lg py-2">
             @if(count($searchResults) > 0)
