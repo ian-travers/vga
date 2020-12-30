@@ -15,4 +15,10 @@
             <x-game-card-normal-placeholder></x-game-card-normal-placeholder>
         @endforeach
     @endforelse
+
+    @push('scripts')
+        @include('_rating', [
+            'event' => 'gameWithRatingAdded'
+        ])
+    @endpush
 </div>

@@ -36,9 +36,16 @@ fields name, cover.url, first_release_date, total_rating_count, platforms.abbrev
         });
 
         $this->popularGames = $this->formatForView($popularGamesUnformatted);
+
+        collect($this->popularGames)->filter(function ($game) {
+            return $game['rating'];
+        })->each(function ($game) {
+            $this->emit('gameWithRatingAdded', [
+                'slug' => $game['slug'],
+                'rating' => $game['rating'] / 100
+            ]);
+        });
     }
-
-
 
     public function render()
     {
