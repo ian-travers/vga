@@ -11,12 +11,10 @@
         </a>
         @if($rating)
             <div
+                id="review_{{ $slug }}"
                 class="absolute w-16 h-16 bg-gray-900 rounded-full"
                 style="right: -20px; bottom: -20px;"
             >
-                <div class="flex items-center justify-center font-semibold text-xs  h-full">
-                    {{ $rating }}
-                </div>
             </div>
         @endif
     </div>

@@ -18,5 +18,11 @@
                 <x-game-card-wide-placeholder></x-game-card-wide-placeholder>
             @endforeach
         @endforelse
+
+        @push('scripts')
+            @include('_rating', [
+                'event' => 'reviewGameWithRatingAdded'
+            ])
+        @endpush
     </div>
 </div>
