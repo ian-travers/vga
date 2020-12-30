@@ -11,12 +11,17 @@
         </a>
         @if($rating)
             <div
+                id="{{ $slug }}"
                 class="absolute w-16 h-16 bg-gray-800 rounded-full"
                 style="right: -20px; bottom: -20px;"
             >
-                <div class="flex items-center justify-center font-semibold text-xs  h-full">
-                    {{ $rating }}
-                </div>
+                @push('scripts')
+                    @include('_rating', [
+                        'slug' => $slug,
+                        'rating' => $rating,
+                        'event' => null,
+                    ])
+                @endpush
             </div>
         @endif
     </div>

@@ -71,7 +71,7 @@ fields name, cover.url, first_release_date, total_rating_count, platforms.abbrev
                         ? Str::replaceFirst('thumb', 'cover_big', $game['cover']['url'])
                         : 'https://via.placeholder.com/200x300?text=No+Cover',
                     'rating' => key_exists('rating', $game)
-                        ? round($game['rating']) . '%'
+                        ? round($game['rating'])
                         : null,
                     'platforms' => key_exists('platforms', $game)
                         ? collect($game['platforms'])->pluck('abbreviation')->implode(', ')
