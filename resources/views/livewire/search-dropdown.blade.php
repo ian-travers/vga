@@ -34,7 +34,10 @@
 
 
     @if(strlen($search) > 2)
-        <div class="absolute z-50 bg-gray-800 text-sm w-64 mt-2 rounded-lg py-2"  x-show="isVisible">
+        <div
+            class="absolute z-50 bg-gray-800 text-sm w-64 mt-2 rounded-lg py-2"
+            x-show.transition.opacity.duration.600="isVisible"
+        >
             @if(count($searchResults) > 0)
                 <ul class="divide-y divide-blue-400">
                     @foreach($searchResults as $game)
