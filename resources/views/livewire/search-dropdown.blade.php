@@ -35,6 +35,9 @@
                             <a
                                 href="{{ route('games.show', $game['slug']) }}"
                                 class="block hover:bg-gray-700 px-3 py-3 flex items-center transition ease-in-out duration-300"
+                                @if($loop->last)
+                                    @keydown.tab="isVisible = false"
+                                @endif
                             >
                                 @if(isset($game['cover']))
                                     <img src="{{ Str::replaceFirst('thumb', 'cover_small', $game['cover']['url']) }}"
