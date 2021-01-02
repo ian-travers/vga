@@ -7,6 +7,7 @@
         @focus="isVisible = true"
         @keydown.escape.window="isVisible = false"
         @keydown="isVisible = true"
+        @keydown.shift.tab="isVisible = false"
     >
     <div class="absolute top-0 flex items-center h-full ml-2">
         <svg viewBox="0 0 20 20" class="w-4">
