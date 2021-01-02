@@ -4,6 +4,7 @@
         type="text"
         class="w-64 bg-gray-800 text-sm rounded-full focus:outline-none px-3 py-1 pl-8"
         placeholder="Search..."
+        @focus="isVisible = true"
     >
     <div class="absolute top-0 flex items-center h-full ml-2">
         <svg viewBox="0 0 20 20" class="w-4">
