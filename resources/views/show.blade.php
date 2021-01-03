@@ -66,11 +66,14 @@
                 <p class="mt-4 md:mt-12">
                     {{ $game['summary'] }}
                 </p>
-                <div class="mt-4 md:mt-12 flex justify-center md:justify-start">
+                <div
+                    class="mt-4 md:mt-12 flex justify-center md:justify-start"
+                    x-data="{ isTrailerModalVisible: false }"
+                >
                     @if($game['videos'])
-                        <a
-                            href="{{ $game['videos'] }}"
+                        <button
                             class="flex bg-blue-500 text-white font-semibold px-4 py-4 rounded hover:bg-blue-600 transition ease-in-out duration-300"
+                            @click="isTrailerModalVisible = true"
                         >
                             <svg class="w-6 h-6">
                                 <g fill-rule="evenodd">
@@ -82,7 +85,43 @@
                                 </g>
                             </svg>
                             <span class="ml-2">Play Trailer</span>
-                        </a>
+                        </button>
+                        <!-- Video Modal window  -->
+                        <div
+                            style="background-color: rgba(0, 0, 0, .5)"
+                            class="fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto"
+                            x-show="isTrailerModalVisible"
+                        >
+                            <div class="container mx-auto lg:px-32 rounded-lg overflow-y-auto">
+                                <div class="bg-gray-900 rounded">
+                                    <div class="flex justify-end pr-4 pt-2">
+                                        <button
+                                            @click="isTrailerModalVisible = false"
+                                            @keydown.escape.window="isTrailerModalVisible = false"
+                                            class="text-3xl leading-none hover:text-gray-300"
+                                        >
+                                            &times;
+                                        </button>
+                                    </div>
+                                    <div class="modal-body px-8 py-8">
+                                        <div
+                                            class="responsive-container overflow-hidden relative"
+                                            style="padding-top: 56.25%"
+                                        >
+                                            <iframe
+                                                width="560"
+                                                height="315"
+                                                class="responsive-iframe absolute top-0 left-0 w-full h-full"
+                                                src="{{ $game['video'] }}"
+                                                style="border:0;"
+                                                allow="autoplay; encrypted-media"
+                                                allowfullscreen
+                                            ></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End of Video Modal window  -->
                     @else
                         <button
                             class="flex bg-blue-500 text-white font-semibold px-4 py-4 rounded hover:bg-blue-600 transition ease-in-out duration-300"

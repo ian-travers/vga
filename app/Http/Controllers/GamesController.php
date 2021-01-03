@@ -53,8 +53,8 @@ fields name, cover.url, first_release_date, total_rating_count, platforms.abbrev
             'aggregated_rating' => key_exists('aggregated_rating', $game)
                 ? round($game['aggregated_rating'])
                 : '0',
-            'videos' => key_exists('videos', $game)
-                ? 'https://youtube.com/watch/' . $game['videos'][0]['video_id']
+            'video' => key_exists('videos', $game)
+                ? 'https://youtube.com/embed/' . $game['videos'][0]['video_id']
                 : null,
             'screenshots' => key_exists('screenshots', $game)
                 ? collect($game['screenshots'])->map(function ($screenshot) {
