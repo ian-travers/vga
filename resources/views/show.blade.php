@@ -144,14 +144,43 @@
             </div>
         </div><!-- end game-details -->
 
-        <div class="images-container border-b border-gray-800 pb-12 mt-8">
+        <div
+            class="images-container border-b border-gray-800 pb-12 mt-8"
+            x-data="{ isImageModalVisible: false, image: '' }"
+        >
             <h2 class="text-blue-500 uppercase tracking-wide font-bold">Images</h2>
             <div class="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-6">
                 @foreach($game['screenshots'] as $screenshot)
                     <x-screenshot
-                        url="{{ $screenshot['url'] }}"></x-screenshot>
+                        url="{{ $screenshot['url'] }}">
+
+                    </x-screenshot>
                 @endforeach
             </div>
+            <!-- Image Modal Window -->
+            <template x-if="isImageModalVisible">
+                <div
+                    style="background-color: rgba(0, 0, 0, .5)"
+                    class="fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto"
+                >
+                    <div class="container mx-auto lg:px-32 rounded-lg overflow-y-auto">
+                        <div class="bg-gray-900 rounded">
+                            <div class="flex justify-end pr-4 pt-2">
+                                <button
+                                    class="text-3xl leading-none hover:text-gray-300"
+                                    @click="isImageModalVisible = false"
+                                    @keydown.escape.window="isImageModalVisible = false"
+                                >
+                                    &times;
+                                </button>
+                            </div>
+                            <div class="modal-body px-8 py-8">
+                                <img :src="image" alt="screenshot">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template> <!-- End of Image Modal Window -->
         </div><!-- end images-container -->
 
         <div class="similar-games-container mt-8">
